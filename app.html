@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Pizza - Authentic Italian Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-pizza-slice"></i>
+                Bella Pizza
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('menu')" class="nav-link">Menu</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('gallery')" class="nav-link">Gallery</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                <li><a href="#" onclick="showPage('order')" class="nav-link">Order Now</a></li>
+            </ul>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Bella Pizza</h1>
+                    <p>Experience the authentic taste of Italy with our handcrafted pizzas made from the finest ingredients and traditional recipes passed down through generations.</p>
+                    <button class="btn" onclick="showPage('menu')">
+                        <i class="fas fa-utensils"></i> Explore Our Menu
+                    </button>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Bella Pizza?</h2>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Farm Fresh Ingredients</h3>
+                            <p>We source our ingredients directly from local farms and Italian importers to ensure the highest quality and authentic flavors in every bite of our delicious pizzas.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-fire"></i>
+                            <h3>Wood-Fired Perfection</h3>
+                            <p>Our authentic wood-fired ovens reach temperatures of 900°F, creating the perfect crispy crust with that distinctive smoky flavor you can't get anywhere else.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h3>Made with Love</h3>
+                            <p>Every pizza is crafted by our passionate chefs who put their heart and soul into creating the perfect combination of flavors, textures, and aromas that will transport you to Italy.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <h3>Fast Delivery</h3>
+                            <p>Hot, fresh pizza delivered to your doorstep in 30 minutes or less. We guarantee your pizza will arrive piping hot and ready to enjoy with our insulated delivery bags.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h3>Award Winning</h3>
+                            <p>Recognized as "Best Pizza in the City" for three consecutive years by the Local Food Critics Association. Taste the difference that quality and tradition make.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h3>Family Tradition</h3>
+                            <p>Founded in 1952 by the Rossi family, we've been serving authentic Italian pizza for over 70 years. Our recipes are family secrets passed down through four generations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Menu Page -->
+        <div id="menu" class="page">
+            <section class="menu-section">
+                <div class="container">
+                    <h2 class="section-title">Our Delicious Menu</h2>
+                    <div class="menu-categories">
+                        <button class="category-btn active" onclick="filterMenu('all')">All Pizzas</button>
+                        <button class="category-btn" onclick="filterMenu('classic')">Classic</button>
+                        <button class="category-btn" onclick="filterMenu('specialty')">Specialty</button>
+                        <button class="category-btn" onclick="filterMenu('vegetarian')">Vegetarian</button>
+                    </div>
+                    <div class="menu-grid" id="menuGrid">
+                        <div class="menu-item" data-category="classic">
+                            <div class="menu-item-image">
+                                🍕
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Margherita Classica</h3>
+                                <p>The queen of pizzas! Fresh mozzarella, San Marzano tomatoes, fresh basil, and extra virgin olive oil on our signature wood-fired crust.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Margherita Classica', 16.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$16.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="classic">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #ff4500, #ff6347);">
+                                🌶️
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Pepperoni Supreme</h3>
+                                <p>Premium pepperoni, mozzarella cheese, and our signature tomato sauce. A timeless favorite that never gets old.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Pepperoni Supreme', 18.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$18.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="vegetarian">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #32cd32, #90ee90);">
+                                🥬
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Garden Veggie Paradise</h3>
+                                <p>Fresh bell peppers, mushrooms, red onions, black olives, cherry tomatoes, and fresh spinach with mozzarella cheese.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Garden Veggie Paradise', 17.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$17.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="specialty">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #8b4513, #d2691e);">
+                                🥓
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Meat Lovers Deluxe</h3>
+                                <p>Pepperoni, Italian sausage, ham, bacon, and ground beef with extra mozzarella cheese. A carnivore's dream come true!</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Meat Lovers Deluxe', 22.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$22.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="specialty">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #4169e1, #87ceeb);">
+                                🧄
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Mediterranean Delight</h3>
+                                <p>Kalamata olives, feta cheese, sun-dried tomatoes, artichoke hearts, red onions, and fresh oregano with olive oil base.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Mediterranean Delight', 19.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$19.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="specialty">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #ff69b4, #ffc0cb);">
+                                🍍
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Hawaiian Paradise</h3>
+                                <p>Premium ham, fresh pineapple chunks, and mozzarella cheese. The perfect sweet and savory combination.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Hawaiian Paradise', 18.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$18.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="specialty">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #ff1493, #ff69b4);">
+                                🔥
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Spicy Diavola</h3>
+                                <p>Spicy salami, hot peppers, jalapeños, red pepper flakes, and mozzarella with spicy tomato sauce. Not for the faint of heart!</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Spicy Diavola', 20.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$20.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="vegetarian">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #9370db, #dda0dd);">
+                                🍄
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Truffle Mushroom</h3>
+                                <p>Wild mushrooms, truffle oil, caramelized onions, goat cheese, and fresh thyme. An elegant and sophisticated flavor profile.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Truffle Mushroom', 24.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$24.99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-category="classic">
+                            <div class="menu-item-image" style="background: linear-gradient(45deg, #ffd700, #ffeb3b);">
+                                🧀
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Four Cheese Quattro</h3>
+                                <p>Mozzarella, parmesan, gorgonzola, and ricotta cheeses with garlic and herbs. A cheese lover's paradise.</p>
+                                <div class="menu-item-footer">
+                                    <button class="add-to-cart" onclick="addToCart('Four Cheese Quattro', 21.99)">
+                                        <i class="fas fa-plus"></i> Add to Cart
+                                    </button>
+                                    <div class="price">$21.99</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="about-section">
+                <div class="container">
+                    <h2 class="section-title">About Bella Pizza</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h3>Our Heritage</h3>
+                            <p>Bella Pizza was founded in 1952 by Giovanni Rossi, who immigrated to America from Naples, Italy, bringing with him generations of family pizza-making secrets. What started as a small neighborhood pizzeria has grown into the most beloved pizza destination in the city, but we've never forgotten our humble beginnings.</p>
+                            
+                            <p>Giovanni's grandson, Marco Rossi, now leads our kitchen with the same passion and dedication that his grandfather brought to America over 70 years ago. Every pizza we serve honors the traditional Neapolitan methods while embracing the diverse tastes of our community.</p>
+                            
+                            <h3>Our Philosophy</h3>
+                            <p>At Bella Pizza, we believe that great pizza is more than just food – it's a way of bringing people together. Whether you're celebrating a special occasion, enjoying a casual dinner with family, or grabbing a quick slice on your lunch break, we're honored to be part of your daily life.</p>
+                            
+                            <p>We source our ingredients from the finest suppliers, including San Marzano tomatoes directly from Italy, fresh mozzarella made daily, and organic vegetables from local farms. Our wood-fired ovens, imported from Naples, reach temperatures of 900°F to create that perfect crispy-yet-chewy crust that our customers have come to love.</p>
+                            
+                            <h3>Community Commitment</h3>
+                            <p>As a family-owned business, we're deeply committed to giving back to our community. We regularly donate to local schools, sponsor youth sports teams, and participate in charity events throughout the year. When you choose Bella Pizza, you're not just getting great food – you're supporting a business that cares about making our neighborhood a better place.</p>
+                        </div>
+                        <div class="about-image">
+                            <div class="chef-image">
+                                👨‍🍳
+                            </div>
+                            <h4 style="margin-top: 2rem; color: #8b4513; font-size: 1.5rem;">Chef Marco Rossi</h4>
+                            <p style="margin-top: 1rem; font-size: 1.1rem; color: #666;">Third Generation Pizza Master</p>
+                            <p style="margin-top: 1rem; font-style: italic;">"Every pizza tells a story, and ours is a story of tradition, passion, and love for authentic Italian cuisine."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Gallery Page -->
+        <div id="gallery" class="page">
+            <section class="gallery-section">
+                <div class="container">
+                    <h2 class="section-title">Gallery</h2>
+                    <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Take a visual journey through our kitchen, restaurant, and the delicious pizzas that make Bella Pizza special.</p>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" onclick="openImageModal('Our Wood-Fired Oven')">
+                            <i class="fas fa-fire"></i>
+                            <div class="gallery-overlay">
+                                <h4>Our Wood-Fired Oven<br><small>Imported directly from Naples, Italy</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Fresh Ingredients')">
+                            <i class="fas fa-leaf"></i>
+                            <div class="gallery-overlay">
+                                <h4>Fresh Ingredients<br><small>Sourced daily from local farms</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Hand-Tossed Dough')">
+                            <i class="fas fa-hands"></i>
+                            <div class="gallery-overlay">
+                                <h4>Hand-Tossed Dough<br><small>Made fresh every morning</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Restaurant Interior')">
+                            <i class="fas fa-utensils"></i>
+                            <div class="gallery-overlay">
+                                <h4>Restaurant Interior<br><small>Cozy Italian atmosphere</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Award Winning Team')">
+                            <i class="fas fa-award"></i>
+                            <div class="gallery-overlay">
+                                <h4>Award Winning Team<br><small>Passionate pizza artisans</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Family Recipes')">
+                            <i class="fas fa-book"></i>
+                            <div class="gallery-overlay">
+                                <h4>Family Recipes<br><small>Passed down through generations</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Pizza Preparation')">
+                            <i class="fas fa-pizza-slice"></i>
+                            <div class="gallery-overlay">
+                                <h4>Pizza Preparation<br><small>Art meets culinary excellence</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Community Events')">
+                            <i class="fas fa-users"></i>
+                            <div class="gallery-overlay">
+                                <h4>Community Events<br><small>Bringing people together</small></h4>
+                            </div>
+                        </div>
+                        <div class="gallery-item" onclick="openImageModal('Delivery Service')">
+                            <i class="fas fa-truck"></i>
+                            <div class="gallery-overlay">
+                                <h4>Delivery Service<br><small>Hot pizza to your door</small></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="contact-section">
+                <div class="container">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">We'd love to hear from you! Get in touch for reservations, catering, or just to say hello.</p>
+                    <div class="contact-content">
+                        <div class="contact-form">
+                            <h3>Send us a Message</h3>
+                            <form id="contactForm" onsubmit="submitContactForm(event)">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject *</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message *</label>
+                                    <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                                </div>
+                                <button type="submit" class="btn">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Get in Touch</h3>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Address</strong><br>
+                                    456 Pizza Boulevard<br>
+                                    Little Italy District<br>
+                                    New York, NY 10012
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Phone</strong><br>
+                                    (555) 123-PIZZA<br>
+                                    (555) 123-7499
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    info@bellapizza.com<br>
+                                    catering@bellapizza.com
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Operating Hours</strong><br>
+                                    Mon-Thu: 11:00 AM - 10:00 PM<br>
+                                    Fri-Sat: 11:00 AM - 11:00 PM<br>
+                                    Sunday: 12:00 PM - 9:00 PM
+                                </div>
+                            </div>
+                            
+                            <h4 style="color: #8b4513; margin: 2rem 0 1rem 0; font-size: 1.4rem;">Follow Us</h4>
+                            <div class="social-links" style="justify-content: flex-start;">
+                                <a href="#" onclick="openSocialMedia('facebook')"><i class="fab fa-facebook"></i></a>
+                                <a href="#" onclick="openSocialMedia('instagram')"><i class="fab fa-instagram"></i></a>
+                                <a href="#" onclick="openSocialMedia('twitter')"><i class="fab fa-twitter"></i></a>
+                                <a href="#" onclick="openSocialMedia('youtube')"><i class="fab fa-youtube"></i></a>
+                                <a href="#" onclick="openSocialMedia('tiktok')"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Order Page -->
+        <div id="order" class="page">
+            <section class="order-section">
+                <div class="container">
+                    <h2 class="section-title">Build Your Perfect Pizza</h2>
+                    <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">Customize your pizza exactly the way you want it. Fresh ingredients, made to order!</p>
+                    <div class="pizza-builder">
+                        <h3><i class="fas fa-pizza-slice"></i> Pizza Customizer</h3>
+                        <div class="pizza-options">
+                            <div class="option-group">
+                                <h4><i class="fas fa-expand-arrows-alt"></i> Choose Your Size</h4>
+                                <div class="option">
+                                    <input type="radio" name="size" value="small" id="small" data-price="14.99">
+                                    <label for="small">Personal 10" - $14.99</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="size" value="medium" id="medium" data-price="18.99" checked>
+                                    <label for="medium">Medium 12" - $18.99</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="size" value="large" id="large" data-price="22.99">
+                                    <label for="large">Large 14" - $22.99</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="size" value="family" id="family" data-price="28.99">
+                                    <label for="family">Family 16" - $28.99</label>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h4><i class="fas fa-bread-slice"></i> Crust Style</h4>
+                                <div class="option">
+                                    <input type="radio" name="crust" value="thin" id="thin" checked>
+                                    <label for="thin">Thin & Crispy</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="crust" value="thick" id="thick">
+                                    <label for="thick">Thick & Chewy</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="crust" value="stuffed" id="stuffed" data-price="4.00">
+                                    <label for="stuffed">Cheese Stuffed (+$4.00)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="crust" value="gluten-free" id="gluten-free" data-price="3.00">
+                                    <label for="gluten-free">Gluten-Free (+$3.00)</label>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h4><i class="fas fa-cheese"></i> Cheese Options</h4>
+                                <div class="option">
+                                    <input type="radio" name="cheese" value="regular" id="regular-cheese" checked>
+                                    <label for="regular-cheese">Regular Mozzarella</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="cheese" value="extra" id="extra-cheese" data-price="3.50">
+                                    <label for="extra-cheese">Extra Cheese (+$3.50)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" name="cheese" value="vegan" id="vegan-cheese" data-price="2.50">
+                                    <label for="vegan-cheese">Vegan Cheese (+$2.50)</label>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h4><i class="fas fa-drumstick-bite"></i> Meat Toppings (+$3.50 each)</h4>
+                                <div class="option">
+                                    <input type="checkbox" name="meat-toppings" value="pepperoni" id="pepperoni" data-price="3.50">
+                                    <label for="pepperoni">Premium Pepperoni</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="meat-toppings" value="sausage" id="sausage" data-price="3.50">
+                                    <label for="sausage">Italian Sausage</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="meat-toppings" value="ham" id="ham" data-price="3.50">
+                                    <label for="ham">Premium Ham</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="meat-toppings" value="bacon" id="bacon" data-price="3.50">
+                                    <label for="bacon">Crispy Bacon</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="meat-toppings" value="chicken" id="chicken" data-price="3.50">
+                                    <label for="chicken">Grilled Chicken</label>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h4><i class="fas fa-carrot"></i> Veggie Toppings (+$2.50 each)</h4>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="mushrooms" id="mushrooms" data-price="2.50">
+                                    <label for="mushrooms">Fresh Mushrooms</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="peppers" id="peppers" data-price="2.50">
+                                    <label for="peppers">Bell Peppers</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="onions" id="onions" data-price="2.50">
+                                    <label for="onions">Red Onions</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="olives" id="olives" data-price="2.50">
+                                    <label for="olives">Kalamata Olives</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="tomatoes" id="tomatoes" data-price="2.50">
+                                    <label for="tomatoes">Cherry Tomatoes</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="veggie-toppings" value="spinach" id="spinach" data-price="2.50">
+                                    <label for="spinach">Fresh Spinach</label>
+                                </div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <h4><i class="fas fa-magic"></i> Special Additions</h4>
+                                <div class="option">
+                                    <input type="checkbox" name="special" value="truffle-oil" id="truffle-oil" data-price="5.00">
+                                    <label for="truffle-oil">Truffle Oil (+$5.00)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="special" value="fresh-basil" id="fresh-basil" data-price="2.00">
+                                    <label for="fresh-basil">Fresh Basil (+$2.00)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="special" value="garlic" id="garlic" data-price="1.50">
+                                    <label for="garlic">Roasted Garlic (+$1.50)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="checkbox" name="special" value="hot-honey" id="hot-honey" data-price="3.00">
+                                    <label for="hot-honey">Hot Honey Drizzle (+$3.00)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cart">
+                            <h3><i class="fas fa-shopping-cart"></i> Your Order Summary</h3>
+                            <div id="orderSummary">
+                                <div class="cart-item">Medium Pizza (12") - $18.99</div>
+                                <div class="cart-item">Thin & Crispy Crust</div>
+                                <div class="cart-item">Regular Mozzarella Cheese</div>
+                            </div>
+                            <div class="cart-total">
+                                Total: $<span id="totalPrice">18.99</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                                <button class="btn" onclick="addToCart('Custom Pizza', getCurrentTotal())" style="background: #28a745;">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                                <button class="btn" onclick="placeOrder()">
+                                    <i class="fas fa-fire"></i> Order Now!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <h4 style="color: #ffd700; margin-bottom: 1rem; font-size: 1.3rem;">
+                        <i class="fas fa-pizza-slice"></i> Bella Pizza
+                    </h4>
+                    <p style="line-height: 1.8; color: #ccc;">
+                        Serving authentic Italian pizza since 1952. We're committed to bringing you the finest ingredients, traditional recipes, and exceptional service that keeps families coming back for generations.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: #ffd700; margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li><a href="#" onclick="showPage('home')" style="color: #ccc; text-decoration: none;"> Home</a></li>
+                        <li><a href="#" onclick="showPage('menu')" style="color: #ccc; text-decoration: none;"> Menu</a></li>
+                        <li><a href="#" onclick="showPage('about')" style="color: #ccc; text-decoration: none;">ℹAbout Us</a></li>
+                        <li><a href="#" onclick="showPage('gallery')" style="color: #ccc; text-decoration: none;"> Gallery</a></li>
+                        <li><a href="#" onclick="showPage('contact')" style="color: #ccc; text-decoration: none;"> Contact</a></li>
+                        <li><a href="#" onclick="showPage('order')" style="color: #ccc; text-decoration: none;"> Order Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #ffd700; margin-bottom: 1rem;">Contact Info</h4>
+                    <div style="line-height: 2; color: #ccc;">
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Pizza Boulevard, NY 10012</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-PIZZA</p>
+                        <p><i class="fas fa-envelope"></i> info@bellapizza.com</p>
+                        <p><i class="fas fa-clock"></i> Open Daily 11 AM - 11 PM</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #ffd700; margin-bottom: 1rem;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" onclick="openSocialMedia('facebook')"><i class="fab fa-facebook"></i></a>
+                        <a href="#" onclick="openSocialMedia('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="openSocialMedia('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" onclick="openSocialMedia('youtube')"><i class="fab fa-youtube"></i></a>
+                        <a href="#" onclick="openSocialMedia('tiktok')"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
+                        Follow us for daily specials, behind-the-scenes content, and pizza inspiration!
+                    </p>
+                </div>
+            </div>
+            
+            <div style="border-top: 2px solid #444; padding-top: 2rem; text-align: center;">
+                <p style="color: #ccc; margin-bottom: 1rem;">
+                    &copy; 2024 Bella Pizza. All rights reserved. | Made with ❤️ and lots of mozzarella!
+                </p>
+                <p style="color: #999; font-size: 0.9rem;">
+                    Privacy Policy | Terms of Service | Nutritional Information | Accessibility
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Element -->
+    <div id="notification" class="notification"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
